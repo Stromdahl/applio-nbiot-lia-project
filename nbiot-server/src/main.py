@@ -2,11 +2,13 @@ from transport import Context
 from messages import MessageType, MessageHandler
 from config import Config
 from log import Log
-from translater import decode
-from Devices.devicetype2variant4 import DeviceType2Variant4
+from imbuildings.translater import decode
+from imbuildings.Devices.devicetype2variant4 import DeviceType2Variant4
 from repository.file.DeviceRepository import validate_device
 
 log = Log("server")
+
+# Todo: Influx integration...
 
 
 class Message(MessageType):

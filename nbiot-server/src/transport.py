@@ -5,6 +5,11 @@ from config import Config
 from messages import MessageHandler
 
 
+# Todo: implement check if able to bind to a address and port
+# Todo: implement ipv6 for udp
+# Todo: make async...
+
+
 class UDPTransportInterface:
 	"""
 	Handles the listening for incoming udp messages,
@@ -13,6 +18,7 @@ class UDPTransportInterface:
 		- log
 		- callable message_handler with parameters address: tuple[str, int] and payload: str
 	"""
+	# Todo: update documentation
 
 	def __init__(self, sock, log, message_handler: MessageHandler):
 		self.sock = sock
@@ -31,7 +37,6 @@ class UDPTransportInterface:
 			address = bytes_address_pair[1]
 
 			self.message_handler.message(address, payload=payload.decode("utf-8"))
-
 
 	@classmethod
 	def create_server_transport_interface(cls, bind, log, message_handler: MessageHandler):
@@ -64,7 +69,7 @@ class Context:
 		log = Log(loggername)
 
 		udp_transport_interface = UDPTransportInterface.create_server_transport_interface(bind=bind, log=log,
-																						message_handler=message_handler)
+																						  message_handler=message_handler)
 
 		self = cls(interface=udp_transport_interface, log=log)
 
