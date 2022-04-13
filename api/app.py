@@ -29,7 +29,7 @@ class nbdevices(db.Model):
 db.create_all()
 
 
-# Not working - error handling
+# Not working - error handling CHECK IF NONE or Not ....
 @app.route('/devices/<id>', methods=['GET'])
 def get_device(id):
     try:
@@ -41,16 +41,12 @@ def get_device(id):
     return error
 
 
-# Not working - error handling
+# working !
 @app.route('/devices/<id>', methods=['DELETE'])
 def delete_device(id):
-    try:
-        db.session.query(nbdevices).filter_by(id=id).delete()
-        db.session.commit()
-        return "device removed "
-    except SQLAlchemyError as e:
-        error = str(e.__dict__['orig'])
-        return jsonify(error)
+    db.session.query(nbdevices).filter_by(id=id).delete()
+    db.session.commit()
+    return f"Device with ID: {id} Removed"
 
 
 # working!
