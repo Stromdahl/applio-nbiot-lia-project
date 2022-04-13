@@ -1,11 +1,11 @@
+from sqlalchemy.exc import SQLAlchemyError
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
 import os
 
-# Om unique id så inte kraschar, utan respons code för att dubblett inte tillåtet.
-# Error handling. Va händer om jag gettar något som inte finns etc.
-
+# TODO Om unique id så inte kraschar, utan respons code för att dubblett inte tillåtet.
+# TODO Error handling. Va händer om jag gettar något som inte finns etc.
 
 app = Flask(__name__)
 
@@ -31,9 +31,36 @@ db.create_all()
 
 @app.route('/devices/<id>', methods=['GET'])
 def get_device(id):
-    device = nbdevices.query.get(id)
-    del device.__dict__['_sa_instance_state']
-    return jsonify(device.__dict__)
+    try:
+        device = nbdevices.query.get(id)
+        del device.__dict__['_sa_instance_state']
+        return jsonify(device.__dict__)
+    except SQLAlchemyError as e:
+        error = str(e.__dict__['orig'])
+    return error
+
+
+@app.route('/devices/<id>', methods=['DELETE'])
+def delete_device(id):
+    try:
+        db.session.query(nbdevices).filter_by(id=id).delete()
+        db.session.commit()
+        return "device deleted"
+    except SQLAlchemyError as e:
+        error = str(e.__dict__['orig'])
+        return jsonify(error)
+
+
+@app.route('/devices/', methods=['POST'])
+def create_device():
+    try:
+        body = request.get_json()
+        db.session.add(nbdevices(body['device_name'], body['application_name']))
+        db.session.commit()
+        return body
+    except SQLAlchemyError as e:
+        error = str(e.__dict__['orig'])
+        return jsonify(error)
 
 
 @app.route('/devices', methods=['GET'])
@@ -43,21 +70,6 @@ def get_devices():
         del device.__dict__['_sa_instance_state']
         devices.append(device.__dict__)
     return jsonify(devices)
-
-
-@app.route('/devices/', methods=['POST'])
-def create_device():
-    body = request.get_json()
-    db.session.add(nbdevices(body['device_name'], body['application_name']))
-    db.session.commit()
-    return body
-
-
-@app.route('/devices/<id>', methods=['DELETE'])
-def delete_device(id):
-    db.session.query(nbdevices).filter_by(id=id).delete()
-    db.session.commit()
-    return "device deleted"
 
 
 '''
