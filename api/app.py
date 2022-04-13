@@ -28,7 +28,8 @@ class nbdevices(db.Model):
 
 db.create_all()
 
-#Not working - error handling
+
+# Not working - error handling
 @app.route('/devices/<id>', methods=['GET'])
 def get_device(id):
     try:
@@ -40,7 +41,7 @@ def get_device(id):
     return error
 
 
-#Not working - error handling
+# Not working - error handling
 @app.route('/devices/<id>', methods=['DELETE'])
 def delete_device(id):
     try:
@@ -51,7 +52,8 @@ def delete_device(id):
         error = str(e.__dict__['orig'])
         return jsonify(error)
 
-#working!
+
+# working!
 @app.route('/devices/', methods=['POST'])
 def create_device():
     try:
