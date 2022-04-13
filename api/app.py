@@ -66,7 +66,12 @@ def create_device():
     body = request.get_json()
     add_device(body['device_name'], body['application_name'])
     return body
-
+    //
+    db:
+    def add_device(device_name, application_name):
+    db.session.add(nbdevices(device_name,application_name))
+    db.session.commit()
+    //
 
 @app.route('/devices/<id>', methods=['DELETE'])
 def delete_device(id):
