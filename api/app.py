@@ -37,9 +37,9 @@ def get_device(id):
 
 @app.route('/devices/<id>', methods=['DELETE'])
 def delete_device(id):
-    test = nbdevices.query.get(id)
-    if not test:
-        return f'Unfortunally can not delete device with ID: {id}. It does not exist', 404
+    id_of_device = nbdevices.query.get(id)
+    if not id_of_device:
+        return f'Unfortunately can not delete device with ID: {id}. It does not exist', 404
     else:
         db.session.query(nbdevices).filter_by(id=id).delete()
         db.session.commit()
@@ -65,4 +65,3 @@ def get_devices():
         del device.__dict__['_sa_instance_state']
         devices.append(device.__dict__)
     return jsonify(devices)
-
