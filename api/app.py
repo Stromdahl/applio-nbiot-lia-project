@@ -29,16 +29,21 @@ class nbdevices(db.Model):
 db.create_all()
 
 
-# Not working - error handling CHECK IF NONE or Not ....
+# working !
 @app.route('/devices/<id>', methods=['GET'])
 def get_device(id):
     try:
         device = nbdevices.query.get(id)
+        if not device:
+            return f"Device with ID: {id} does not exist"
         del device.__dict__['_sa_instance_state']
         return jsonify(device.__dict__)
     except SQLAlchemyError as e:
         error = str(e.__dict__['orig'])
     return error
+
+
+
 
 
 # working !
