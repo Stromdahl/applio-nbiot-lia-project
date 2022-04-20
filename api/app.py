@@ -1,12 +1,8 @@
-import flask
 from sqlalchemy.exc import SQLAlchemyError
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
-
 import os
 
-# TODO Om unique id så inte kraschar, utan respons code för att dubblett inte tillåtet.
-# TODO Error handling. Va händer om jag gettar något som inte finns etc.
 
 app = Flask(__name__)
 
@@ -30,7 +26,6 @@ class nbdevices(db.Model):
 db.create_all()
 
 
-# working !
 @app.route('/devices/<id>', methods=['GET'])
 def get_device(id):
     device = nbdevices.query.get(id)
@@ -40,7 +35,6 @@ def get_device(id):
     return jsonify(device.__dict__)
 
 
-# working!
 @app.route('/devices/<id>', methods=['DELETE'])
 def delete_device(id):
     test = nbdevices.query.get(id)
@@ -52,7 +46,6 @@ def delete_device(id):
         return f' Deleted ID: {id}'
 
 
-# working!
 @app.route('/devices/', methods=['POST'])
 def create_device():
     try:
@@ -73,22 +66,3 @@ def get_devices():
         devices.append(device.__dict__)
     return jsonify(devices)
 
-
-'''
-@app.route('/devices/', methods=['POST'])
-def create_device():
-    body = request.get_json()
-    add_device(body['device_name'], body['application_name'])
-    return body
-    //
-    db:
-    def add_device(device_name, application_name):
-    db.session.add(nbdevices(device_name,application_name))
-    db.session.commit()
-    //
-
-@app.route('/devices/<id>', methods=['DELETE'])
-def delete_device(id):
-    delete_the_device(id)
-    return f"device w. ID {id} deleted"
-'''
