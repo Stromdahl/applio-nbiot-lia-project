@@ -3,7 +3,6 @@ from sqlalchemy.exc import SQLAlchemyError
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
-
 import os
 
 # TODO Om unique id så inte kraschar, utan respons code för att dubblett inte tillåtet.
@@ -34,37 +33,23 @@ db.create_all()
 # working !
 @app.route('/devices/<id>', methods=['GET'])
 def get_device(id):
-    try:
-        device = nbdevices.query.get(id)
-        if not device:
-            return f"Device with ID: {id} does not exist", 409
-        del device.__dict__['_sa_instance_state']
-        return jsonify(device.__dict__)
-    except SQLAlchemyError as e:
-        error = str(e.__dict__['orig'])
-    return error
+    device = nbdevices.query.get(id)
+    if not device:
+        return f"Device with ID: {id} does not exist", 409
+    del device.__dict__['_sa_instance_state']
+    return jsonify(device.__dict__)
 
 
-
-# NOT working w error handling http !
+# working!
 @app.route('/devices/<id>', methods=['DELETE'])
 def delete_device(id):
-    try:
-        test = db.session.query(nbdevices).filter_by(id=id)
-        if not test:
-            return f'Unfortunally can not delete {id} Device with ID: {id} does not exist', 409
-        else:
-            db.session.query(nbdevices).filter_by(id=id).delete()
-            db.session.commit()
-            return f' Deleted ID: {id}'
-
-    except SQLAlchemyError as ex:
-        error = str(ex.__dict__['orig'])
-        return error, 422
-
-
-
-
+    test = nbdevices.query.get(id)
+    if not test:
+        return f'Unfortunally can not delete device with ID: {id}. It does not exist', 404
+    else:
+        db.session.query(nbdevices).filter_by(id=id).delete()
+        db.session.commit()
+        return f' Deleted ID: {id}'
 
 
 # working!
