@@ -24,7 +24,7 @@ query_api = client.query_api()
 
 #write_lines()
 write_point()
-#write_json()
+write_json()
 
 querydb()
 

@@ -1,8 +1,12 @@
 import json
 import os
+from datetime import datetime
+
 from flask.cli import load_dotenv
 from influxdb_client import InfluxDBClient, Point
 from influxdb_client.client.write_api import SYNCHRONOUS
+from influxdb_client.client.write.point import Point, DEFAULT_WRITE_PRECISION
+
 from influx.querydb import querydb
 
 load_dotenv()
@@ -18,7 +22,7 @@ query_api = client.query_api()
 
 
 def write_point():
-    p = Point("test_measurement").tag("location", "Budapest").field("temperature", 19.1)
+    p = Point("my_mem").tag("location", "Bara").field("temperature", 12.12)
     # pcc = Point("xxx").tag("yy", "zz").field("ppp",123,3)
     write_api.write(bucket, org, p)
 
@@ -28,11 +32,31 @@ def write_lines():
     write_api.write(bucket, org, data)
 
 
-#https://docs.influxdata.com/telegraf/v1.22/data_formats/input/json_v2/
+# https://docs.influxdata.com/telegraf/v1.22/data_formats/input/json_v2/
 def write_json():
-    data = ({"measurement": "h2o_feet", "tags": {"location": "coyote_creek"},
-             "fields": {"water_level": 1.0}, "time": 1})
+    json_payload = []
+
+    data = {
+        "measurement": "cpu_load_short",
+        "tags": {
+            "host": "server01",
+            "region": "us-west"
+        },
+        "time": "2009-11-10T23:00:00Z",
+        "fields": {
+            "value": 0.64
+        }
+    }
+    json_payload.append(data)
+    print(json_payload)
+    client.write_api(bucket=bucket, org=org, record=json_payload)
+
+
+    # data = ({"measurement": "h2o_feet", "tags": {"location": "coyote_creek"},
+    # "fields": {"water_level": 1.0}, "time": 1})
 
     # y = json.dumps(data)
-    print(data)
-    write_api.write(bucket, org, data)
+    # print(data)
+    # print(data1)
+    # client.write_api()
+    # write_api.write(bucket, org, data1)
