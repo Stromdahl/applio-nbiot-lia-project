@@ -18,9 +18,9 @@ query_api = client.query_api()
 
 
 def write_point():
-    p = Point("test_measurement").tag("location", "Lund").field("temperature", 22.1)
+    p = Point("test_measurement").tag("location", "Budapest").field("temperature", 19.1)
     # pcc = Point("xxx").tag("yy", "zz").field("ppp",123,3)
-    write_api.write(bucket=bucket, record=p)
+    write_api.write(bucket, org, p)
 
 
 def write_lines():
@@ -28,12 +28,11 @@ def write_lines():
     write_api.write(bucket, org, data)
 
 
+#https://docs.influxdata.com/telegraf/v1.22/data_formats/input/json_v2/
 def write_json():
-    data = {
-        "measurement": "John",
-        "age": 30,
-        "city": "New York",
-    }
-    y = json.dumps(data)
-    print(y)
-    write_api.write(bucket=bucket, record=y)
+    data = ({"measurement": "h2o_feet", "tags": {"location": "coyote_creek"},
+             "fields": {"water_level": 1.0}, "time": 1})
+
+    # y = json.dumps(data)
+    print(data)
+    write_api.write(bucket, org, data)

@@ -17,11 +17,12 @@ query_api = client.query_api()
 
 def querydb():
     query = """from(bucket: "testraw") |> range(start: -1000h)"""
-    tables = client.query_api().query(query, org=org)
+    tables = client.query_api().query(query=query, org=org)
     for table in tables:
         for record in table.records:
             print(record)
-
+            #print(record.values)
+            #print(record.get_value(), record.get_field(), record.get_measurement())
 
 
 '''
