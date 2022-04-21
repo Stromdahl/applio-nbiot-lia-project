@@ -37,19 +37,18 @@ def write_json():
     json_payload = []
 
     data = {
-        "measurement": "cpu_load_short",
+        "measurement": "whatever",
         "tags": {
-            "host": "server01",
-            "region": "us-west"
+            "location": "server01",
+            "host": "applio"
         },
-        "time": "2009-11-10T23:00:00Z",
         "fields": {
-            "value": 0.64
+            "filled_capacity": 0.123,
         }
     }
     json_payload.append(data)
     print(json_payload)
-    client.write_api(bucket=bucket, org=org, record=json_payload)
+    write_api.write(bucket=bucket, org=org, record=json_payload)
 
 
     # data = ({"measurement": "h2o_feet", "tags": {"location": "coyote_creek"},
