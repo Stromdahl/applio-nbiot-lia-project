@@ -3,7 +3,6 @@ from messages import MessageType, MessageHandler
 from config import Config
 from log import Log
 from imbuildings.translater import decode
-from imbuildings.Devices.devicetype2variant4 import DeviceType2Variant4
 import paho.mqtt.client as mqtt
 import json
 log = Log("server")
