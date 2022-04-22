@@ -1,7 +1,7 @@
 import time
 import socket
 import random
-from src.translater import encode
+from src.imbuildings.translater import encode
 from src.log import Log
 
 
