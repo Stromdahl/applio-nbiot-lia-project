@@ -1,5 +1,20 @@
 from abc import ABC, abstractmethod
 
+# {
+# 'payload_type': 2,
+# 'payload_variant': 4,
+#      'device_id': 'E8EB1BFF4F23',
+#      'device_status': 0,
+#      'battery_voltage': 2.41,
+#      'rssi_level': 143,
+#      'date': '20220419',
+#      'time': '075500',
+#      'counter_a': 0,
+#      'counter_b': 0,
+#      'sensor_status': 162
+# }
+# '0204e8eb1bff4f230000f18f2022041907550000000000a2'
+
 
 class PayloadTranslater(ABC):
     @abstractmethod
@@ -19,7 +34,7 @@ class Type2Variant4(PayloadTranslater):
             'device_id': payload[2:8].hex().upper(),
             'device_status': payload[8],
             'battery_voltage': int.from_bytes(payload[9:11], "big") / 100.,
-            'rssi_level': payload[11],
+            'rssi_level': (128 - payload[11]),
             'date': payload[12:16].hex(),
             'time': payload[16:19].hex(),
             'counter_a': int.from_bytes(payload[19:21], "big"),
