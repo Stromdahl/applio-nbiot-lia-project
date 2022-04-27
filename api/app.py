@@ -25,34 +25,24 @@ class nbdevices(db.Model):
 db.create_all()
 
 
-@app.route('/devices/<id>', methods=['GET'])
-def get_device(id):
-    device = nbdevices.query.get(id)
-    if not device:
-        return f"Device with ID: {id} does not exist", 409
-    del device.__dict__['_sa_instance_state']
-    return jsonify(device.__dict__)
-
-
-@app.route('/devices_by_name/<device_name>', methods=['GET'])
-def get_device_name(device_name):
+@app.route('/devices/<device_name>', methods=['GET'])
+def get_device(device_name):
     device = nbdevices.query.filter_by(device_name=device_name).first()
-    #device=db.session.query(nbdevices).filter_by(device_name=device_name)
     if not device:
         return f"Device with device name: {device_name} does not exist", 404
     del device.__dict__['_sa_instance_state']
     return device.__dict__
 
 
-@app.route('/devices/<id>', methods=['DELETE'])
-def delete_device(id):
-    id_of_device = nbdevices.query.get(id)
-    if not id_of_device:
-        return f'Unfortunately can not delete device with ID: {id}. It does not exist', 404
+@app.route('/devices/<device_name>', methods=['DELETE'])
+def delete_device(device_name):
+    name_of_device = nbdevices.query.filter_by(device_name=device_name).first()
+    if not name_of_device:
+        return f'Unfortunately can not delete device with device name: {device_name}. It does not exist', 404
     else:
-        db.session.query(nbdevices).filter_by(id=id).delete()
+        db.session.query(nbdevices).filter_by(device_name=device_name).delete()
         db.session.commit()
-        return f' Deleted ID: {id}'
+        return f' Deleted device with device name: {device_name}'
 
 
 @app.route('/devices/', methods=['POST'])
@@ -74,3 +64,25 @@ def get_devices():
         del device.__dict__['_sa_instance_state']
         devices.append(device.__dict__)
     return jsonify(devices)
+
+
+'''
+@app.route('/devices_by_id/<id>', methods=['GET'])
+def get_device_by_id(id):
+    device = nbdevices.query.get(id)
+    if not device:
+        return f"Device with ID: {id} does not exist", 409
+    del device.__dict__['_sa_instance_state']
+    return jsonify(device.__dict__)
+
+
+@app.route('/devices_by_id/<id>', methods=['DELETE'])
+def delete_device_by_id(id):
+    id_of_device = nbdevices.query.get(id)
+    if not id_of_device:
+        return f'Unfortunately can not delete device with ID: {id}. It does not exist', 404
+    else:
+        db.session.query(nbdevices).filter_by(id=id).delete()
+        db.session.commit()
+        return f' Deleted ID: {id}'
+'''
