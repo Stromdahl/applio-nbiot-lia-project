@@ -46,7 +46,7 @@ def write_json():
             "f-port": 99
         },
         "fields": {
-            "value": 0.00000,
+            "value": 0.12345,
         }
     }
 
