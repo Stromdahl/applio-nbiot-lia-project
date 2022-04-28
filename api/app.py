@@ -64,25 +64,3 @@ def get_devices():
         del device.__dict__['_sa_instance_state']
         devices.append(device.__dict__)
     return jsonify(devices)
-
-
-'''
-@app.route('/devices_by_id/<id>', methods=['GET'])
-def get_device_by_id(id):
-    device = nbdevices.query.get(id)
-    if not device:
-        return f"Device with ID: {id} does not exist", 409
-    del device.__dict__['_sa_instance_state']
-    return jsonify(device.__dict__)
-
-
-@app.route('/devices_by_id/<id>', methods=['DELETE'])
-def delete_device_by_id(id):
-    id_of_device = nbdevices.query.get(id)
-    if not id_of_device:
-        return f'Unfortunately can not delete device with ID: {id}. It does not exist', 404
-    else:
-        db.session.query(nbdevices).filter_by(id=id).delete()
-        db.session.commit()
-        return f' Deleted ID: {id}'
-'''
