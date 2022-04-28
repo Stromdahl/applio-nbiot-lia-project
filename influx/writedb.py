@@ -37,13 +37,16 @@ def write_json():
     json_payload = []
 
     data = {
-        "measurement": "yeyeyeye",
+        "measurement": "device_frmpayload_data_analogInput_4",
         "tags": {
-            "location": "server02",
-            "host": "applio"
+            "application_name": "server02",
+            "device_name": "applio",
+            "dev_eui" : 13413413431413,
+            "host" : "applio-stack-telegraf",
+            "f-port" : 99
         },
         "fields": {
-            "filled_capacity": 0.11111,
+            "value": 0.00000,
         }
     }
 

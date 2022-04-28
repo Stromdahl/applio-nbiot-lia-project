@@ -26,4 +26,6 @@ write_json()
 
 querydb()
 
+
+
 client.close()
