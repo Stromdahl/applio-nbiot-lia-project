@@ -34,11 +34,29 @@ def get_device(device_name):
     return device.__dict__
 
 
+
 @app.route('/devices/<device_name>', methods=['DELETE'])
 def delete_device(device_name):
     name_of_device = nbdevices.query.filter_by(device_name=device_name).first()
     if not name_of_device:
         return f'Unfortunately can not delete device with device name: {device_name}. It does not exist', 404
+
+@app.route('/devices_by_name/<device_name>', methods=['GET'])
+def get_device_name(device_name):
+    device = nbdevices.query.filter_by(device_name=device_name).all()
+    if not device:
+        return f"Device with device name: {device_name} does not exist", 418
+    #funkar hit.
+    #del device.__dict__['_sa_instance_state']
+   # return jsonify(device.__dict__)
+    return f'Hej Denna finns, lös nu return för objektet'
+
+
+@app.route('/devices/<id>', methods=['DELETE'])
+def delete_device(id):
+    id_of_device = nbdevices.query.get(id)
+    if not id_of_device:
+        return f'Unfortunately can not delete device with ID: {id}. It does not exist', 404
     else:
         db.session.query(nbdevices).filter_by(device_name=device_name).delete()
         db.session.commit()
