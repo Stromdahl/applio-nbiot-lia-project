@@ -28,17 +28,39 @@ if __name__ == '__main__':
 
 '''
 # PUBLISH
+import json
+from random import random
 
 import paho.mqtt.client as paho
+
+
+# PUBLISH
 
 def on_publish(client, userdata, result):  # create function for callback
     print("message sent")
     pass
 
+
+payload =json.dumps({
+    "measurement": "device_frmpayload_data_analogInput_4",
+    "tags": {
+        "application_name": "server02",
+        "device_name": "applio123",
+        "dev_eui": 13413413431413,
+        "host": "applio-stack-telegraf",
+        "f-port": 99
+    },
+    "fields": {
+        "value": 0.00000,
+    }
+})
+
 client1 = paho.Client()  # create client object
 client1.on_publish = on_publish  # assign function to callback
 client1.connect("localhost", 1883, 60)  # establish connection
-client1.publish("adapter/test", payload="hejhej")  # publish
+client1.publish("adapter/test9", payload=payload)  # publish
+client1.loop_forever()
+
 
 #Mattias
 def on_message(client: mqtt.Client, userdata, message: mqtt.MQTTMessage):
@@ -50,4 +72,4 @@ def on_message(client: mqtt.Client, userdata, message: mqtt.MQTTMessage):
         print(f"{message.topic}, {str(device)}")
         client.publish(f"gateway/{device['device_id']}", payload=json.dumps(device))
 
-'''
+'''''
