@@ -1,15 +1,22 @@
+import json
+
 import paho.mqtt.client as mqtt
-import random
+
+from DeviceAPI import get_device
 
 
-def on_message(client, userdata, message):
-    print(f"{message.topic}, {str(message.payload.decode('utf-8'))}")
+def on_message(client: mqtt.Client, userdata, message: mqtt.MQTTMessage):
+    device = json.loads(message.payload.decode('utf-8'))
+    application_name = get_device(device['device_id'])
+    if application_name:
+        device["application_name"] = application_name
+        print(f"{message.topic}, {str(device)}")
+        client.publish(f"gateway/{device['device_id']}", payload=json.dumps(device))
 
 
 def main():
     client = mqtt.Client()
     client.connect("localhost", 1883, 60)
-    client.publish("test/abc", payload=random.randint(0, 100))
     client.subscribe("adapter/#")
 
     client.on_message = on_message
