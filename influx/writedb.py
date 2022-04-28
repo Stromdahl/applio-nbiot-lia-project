@@ -39,9 +39,9 @@ def write_json():
     data = {
         "measurement": "device_frmpayload_data_analogInput_4",
         "tags": {
-            "application_name": "server02",
-            "device_name": "applio123",
-            "dev_eui": 13413413431413,
+            "application_name": "a1b42283-6c06-40b1-8a6b-aa90be4c013e",
+            "device_name": "373733385237770d",
+            "dev_eui": "373733385237770d",
             "host": "applio-stack-telegraf",
             "f-port": 99
         },
