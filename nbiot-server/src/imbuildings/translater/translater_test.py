@@ -1,6 +1,6 @@
 import unittest
 
-from translaters import Type2Variant4, Type2Variant6
+from .translaters import Type2Variant4, Type2Variant6
 
 
 class TestType2Variant4(unittest.TestCase):
