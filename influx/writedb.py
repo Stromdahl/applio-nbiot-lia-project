@@ -47,9 +47,6 @@ def write_json():
         }
     }
 
-
     json_payload.append(data)
     print(json_payload)
     write_api.write(bucket=bucket, org=org, record=json_payload)
-
-
