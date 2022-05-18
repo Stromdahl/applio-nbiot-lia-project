@@ -17,13 +17,13 @@ def _prepare_point(measurement, data) -> Point:
         .tag("f_port", 1)\
         .tag("host", "nb-iot-stack")\
 
-def prepare_data(data):
+def create_data_sequence(data):
     """Handles the perperation of the data for inserting to influxdb"""
     device_id = data['device_id']
     application_name = data['application_name']
 
     result = []
-    for measurement, value in data["measurement"].items():
+    for measurement, value in data["measurements"].items():
         point = _prepare_point("device_frmpayload_data_"+ measurement, data)
         point = point.field("value", value)
         result.append(point)
