@@ -39,8 +39,8 @@ def main():
         data['date'] = time.strftime('%Y%m%d', t)
         data['time'] = time.strftime('%H%M%S', t)
 
-        data['counter_a'] += random.randint(0, 5)
-        data['counter_b'] += random.randint(0, 5)
+        data['counter_a'] = random.randint(0, 5)
+        data['counter_b'] = random.randint(0, 5)
 
         payload = encode(data).hex()
 

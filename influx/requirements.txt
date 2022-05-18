@@ -1,2 +1,2 @@
-pip==22.0.4
-setuptools==58.1.0
+influxdb_client==1.28.0
+paho-mqtt==1.6.1

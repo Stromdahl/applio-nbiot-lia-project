@@ -13,6 +13,7 @@ client = mqtt.Client()
 class Message(MessageType):
 	def handle_message(self, address: tuple[str, int], payload: str):
 		data = decode(payload)
+
 		log.debug(f"Device {data['device_id']} sent a {len(payload)//2} byte package")
 		client.publish(f"adapter/UDP/{data['device_id']}", payload=json.dumps(data))
 		pass
@@ -26,7 +27,6 @@ def main():
 
 	# Add a message type
 	message_handler.add_message_type(Message())
-
 
 	log.info(f"UDP adapter started on: {Config.ADDRESS}:{Config.PORT}...")
 	context = Context.create_server_context(message_handler)

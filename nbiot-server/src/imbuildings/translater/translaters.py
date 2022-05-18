@@ -29,17 +29,17 @@ class PayloadTranslater(ABC):
 class Type2Variant4(PayloadTranslater):
     def decode(self, payload: bytearray) -> dict:
         return {
-            'payload_type': 2,
-            'payload_variant': 4,
             'device_id': payload[2:8].hex().upper(),
-            'device_status': payload[8],
-            'battery_voltage': int.from_bytes(payload[9:11], "big") / 100.,
-            'rssi_level': (128 - payload[11]),
-            'date': payload[12:16].hex(),
-            'time': payload[16:19].hex(),
-            'counter_a': int.from_bytes(payload[19:21], "big"),
-            'counter_b': int.from_bytes(payload[21:23], "big"),
-            'sensor_status': payload[23]
+            'device_uplink': {
+                'rssi': (128 - payload[11]),
+            },
+            "measurements": {
+                'device_status': payload[8],
+                'battery': int.from_bytes(payload[9:11], "big") / 100.,
+                'counter_a': int.from_bytes(payload[19:21], "big"),
+                'counter_b': int.from_bytes(payload[21:23], "big"),
+                'sensor_status': payload[23]
+            }
         }
 
     def encode(self, data: dict) -> bytearray:

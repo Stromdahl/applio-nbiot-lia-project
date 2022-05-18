@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3c949706-c4c5-4c2e-966c-aad2ff63b660" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../api/.idea/api.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../device-api/.idea/device-api.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../influx/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../influx/.idea/influx.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../influx/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../influx/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../influx/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../influx/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../influx/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../influx/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../influx/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../influx/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/nbiot-server.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../network-server/.idea/network-server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../influx/db.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../influx/querydb.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../influx/writedb.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dummy_device/client_persistent.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dummy_device/client_persistent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imbuildings/translater/translaters.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/imbuildings/translater/translaters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="283y25LiO2ufEtgYLxDimBYKZSN" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="client_persistent" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="nbiot-server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/dummy_device" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/dummy_device/client_persistent.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="nbiot-server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="nbiot-server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.client_persistent" />
+        <item itemvalue="Python.test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3c949706-c4c5-4c2e-966c-aad2ff63b660" name="Changes" comment="" />
+      <created>1650459355834</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1650459355834</updated>
+      <workItem from="1650459359799" duration="130000" />
+      <workItem from="1650460840115" duration="2134000" />
+      <workItem from="1650610295118" duration="5490000" />
+      <workItem from="1650620261538" duration="1376000" />
+      <workItem from="1650622341312" duration="917000" />
+      <workItem from="1650870175004" duration="1513000" />
+      <workItem from="1652691849559" duration="1062000" />
+      <workItem from="1652857862226" duration="330000" />
+    </task>
+    <task id="LOCAL-00001" summary="Fixed import error">
+      <created>1650621176828</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1650621176828</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add mqtt to the message handler">
+      <created>1650621265204</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1650621265204</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add comment for data from a &quot;Real&quot; device and fixed a bug in the decoder">
+      <created>1650621327375</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1650621327375</updated>
+    </task>
+    <task id="LOCAL-00004" summary="test mqtt stuff">
+      <created>1650621353185</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1650621353185</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixed import error" />
+    <MESSAGE value="Add mqtt to the message handler" />
+    <MESSAGE value="Add comment for data from a &quot;Real&quot; device and fixed a bug in the decoder" />
+    <MESSAGE value="test mqtt stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="test mqtt stuff" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/test.py</url>
+          <line>36</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/main.py</url>
+          <line>16</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/nbiot_server$client_persistent.coverage" NAME="client_persistent Coverage Results" MODIFIED="1652692280617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/dummy_device" />
+    <SUITE FILE_PATH="coverage/nbiot_server$test.coverage" NAME="test Coverage Results" MODIFIED="1650620434214" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/nbiot_server$main.coverage" NAME="main Coverage Results" MODIFIED="1652692303567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+  </component>
+</project>

@@ -1,0 +1,54 @@
+{
+    "configurations": [
+        {
+            "name": "Python: Main",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "env": {
+                "influx_url": "http://localhost:8086",
+                "token": "VU6i3UKfqeCkw-f3fSKZU2svjk34wyb6gHoABMhemdhpO4IjCrwlVDvA9L5CyN3xUdGjJMyQs2jqBfOMdbl2HQ==",
+                "org": "myOrg"
+            }
+        },
+        
+        {
+            "name": "Python: Remote Attach",
+            "type": "python",
+            "request": "attach",
+            "connect": {
+                "host": "localhost",
+                "port": 5678
+            },
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "."
+                }
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "Docker: Python - General",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debug",
+            "python": {
+                "pathMappings": [
+                    {
+                        "localRoot": "${workspaceFolder}",
+                        "remoteRoot": "/app"
+                    }
+                ],
+                "projectType": "general"
+            },
+            "env": {
+                "influx_url": "http://localhost:8086",
+                "token": "VU6i3UKfqeCkw-f3fSKZU2svjk34wyb6gHoABMhemdhpO4IjCrwlVDvA9L5CyN3xUdGjJMyQs2jqBfOMdbl2HQ==",
+                "org": "myOrg"
+            }
+        }
+    ]
+}

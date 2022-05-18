@@ -1,10 +1,8 @@
 import json
 import os
 
-from flask.cli import load_dotenv
-from influxdb_client import InfluxDBClient, Point
 
-load_dotenv()
+from influxdb_client import InfluxDBClient, Point
 
 token = os.getenv('token')
 org = os.getenv('org')

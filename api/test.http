@@ -1,0 +1,10 @@
+GET http://localhost:80/devices
+
+###
+
+POST http://127.19.0.3:5000/devices/
+
+{
+    "device_name": "123abc",
+    "application_name": "lkjhgfds"
+}
