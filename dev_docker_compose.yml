@@ -1,0 +1,35 @@
+version: '3.3'
+services:
+    mosquitto:
+        image: eclipse-mosquitto:1.6.14
+        restart: unless-stopped
+        ports:
+          - 1883:1883
+
+    influxdb:
+        image: influxdb:2.0.9
+        restart: unless-stopped
+        ports: 
+            - 8086:8086
+        volumes:
+            - ./data/influxdb:/var/lib/influxdb2
+        command: influxd run --bolt-path /var/lib/influxdb2/influxd.bolt --engine-path /var/lib/influxdb2/engine --store bolt
+        environment:
+            - INFLUXDB_ADMIN_USER=admin 
+            - INFLUXDB_ADMIN_PASSWORD=password
+            - INFLUXDB_USER=influx
+            - INFLUXDB_USER_PASSWORD=password
+            - INFLUXD_QUERY_CONCURRENCY=20
+            - INFLUXD_QUERY_QUEUE_SIZE=200
+            - INFLUXD_SESSION_LENGTH=120
+
+    influx_integration:
+        image: influx_integration
+        build:
+            context: ./influx
+        environment:
+            - INFLUX_URL=http://influxdb:8086
+            - INFLUX_TOKEN=T83eOo-vBhs9Vj137wTddvdLt_f3rr4WOTBPc3HpR2vb7w2JEg-Q6DTEKGGpEKFOXs6fWEcmTSUMN-rlE_6p7g==
+            - INFLUX_ORG=myOrg
+        depends_on:
+            - "mosquitto"

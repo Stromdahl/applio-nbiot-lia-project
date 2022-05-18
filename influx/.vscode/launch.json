@@ -8,9 +8,9 @@
             "console": "integratedTerminal",
             "justMyCode": true,
             "env": {
-                "influx_url": "http://localhost:8086",
-                "token": "VU6i3UKfqeCkw-f3fSKZU2svjk34wyb6gHoABMhemdhpO4IjCrwlVDvA9L5CyN3xUdGjJMyQs2jqBfOMdbl2HQ==",
-                "org": "myOrg"
+                "INFLUX_URL": "http://localhost:8086",
+                "INFLUX_TOKEN": "T83eOo-vBhs9Vj137wTddvdLt_f3rr4WOTBPc3HpR2vb7w2JEg-Q6DTEKGGpEKFOXs6fWEcmTSUMN-rlE_6p7g==",
+                "INFLUX_ORG": "myOrg"
             }
         },
         

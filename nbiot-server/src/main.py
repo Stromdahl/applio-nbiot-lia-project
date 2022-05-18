@@ -20,7 +20,7 @@ class Message(MessageType):
 
 
 def main():
-	client.connect("127.0.0.1", 1883, 60)
+	client.connect("localhost", 1883, 60)
 
 	# Create a MessageHandler
 	message_handler = MessageHandler()
